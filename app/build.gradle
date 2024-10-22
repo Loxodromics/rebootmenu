@@ -1,23 +1,32 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 27
+    namespace 'com.ryuunoakaihitomi.rebootmenu'  // add namespace
+    compileSdk 34  // update to recent version
+
     defaultConfig {
         applicationId "com.ryuunoakaihitomi.rebootmenu"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdk 16
+        targetSdk 34  // update to recent version
         versionCode 65
         versionName "10_蛍夢_29"
     }
-    //有病吧，不用Java 1.8时提示用拉姆达，编译时又出错要加Java 1.8。我还以为AS原生支持拉姆达表达式了。
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'  // add androidx support
 }

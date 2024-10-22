@@ -41,8 +41,9 @@ public class ShellUtils {
                 if (os != null) {
                     os.close();
                 }
-                assert process != null;
-                process.destroy();
+                if (process != null) {  // Changed from assert to if check
+                    process.destroy();
+                }
             } catch (Exception e) {
                 new DebugLog(e, "isRoot", true);
             }
